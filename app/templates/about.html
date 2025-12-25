@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Product - My Site{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="shop-full-banner">
+    <p class="breadcrumb">
+    <a href="{% url 'home' %}">Home</a> &gt;
+    <a href="{% url 'about' %}">About</a>
+</p>
+
+</div>
+
+
+<div class="about-section">
+
+    <div class="about-img">
+        <img src="{% static 'images/banner-22.jpg' %}" alt="Jewelry Image">
+    </div>
+
+    <div class="about-text">
+        <h2>Introduction to Jewelry</h2>
+        <p>
+            Jewelry has been an integral part of human culture for centuries, serving as adornments, 
+            status symbols, and expressions of personal style. From ancient civilizations to modern 
+            societies, people across the globe have cherished jewelry for its beauty, craftsmanship, 
+            and symbolism.
+        </p>
+    </div>
+
+</div>
+
+<!-- about-2 -->
+ <div class="style-section">
+
+    <div class="style-text overlay-box">
+        <div class="overlay"></div>
+
+        <h2>Elevate Your Style</h2>
+        <p>
+            From statement pieces to delicate designs, our collection has the perfect accessory 
+            to complement any outfit and elevate your look.
+        </p>
+        <a href="#" class="shop-btn">Shop Now</a>
+    </div>
+
+    <div class="style-image">
+        <img src="{% static 'images/banner-3.webp' %}" alt="Jewelry">
+    </div>
+
+</div>
+
+
+  <div class="testi-section">
+
+    <p class="testi-title">“Recommend it to everyone”</p>
+
+    <div class="stars">★★★★★</div>
+
+    <p class="testi-text">
+        “ I have never been disappointed, either for myself or as gifts, the pieces are lovely, 
+        reasonably priced, and I love the personal touches…. ”
+    </p>
+
+    <p class="testi-author">Linda Maria - Designer</p>
+
+</div>  
+
+<!-- about-4 -->
+
+<div class="brands-section">
+    <span>ADAMA</span>
+    <span>august</span>
+    <span>heavenly</span>
+    <span>pedra</span>
+    <span>rococo</span>
+    <span>xoxo.</span>
+</div>
+
+
+{% endblock %}

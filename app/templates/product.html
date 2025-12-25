@@ -1,0 +1,223 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Product- My Site{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/product.css' %}">
+{% endblock %}
+
+{% block content %}
+
+
+
+
+   <div class="shop-full-banner">
+    <p class="breadcrumb">
+    <a href="{% url 'home' %}">Home</a> &gt;
+    <a href="{% url 'blog' %}">Blog</a>
+</p>
+</div>
+
+<!-- blog-1 -->
+
+<div class="blog-container">
+
+    <!-- LEFT SIDEBAR -->
+    <aside class="blog-sidebar">
+
+        <div class="search-box">
+            <input type="text" placeholder="Search...">
+        </div>
+
+        <div class="sidebar-section">
+            <h4>Categories</h4>
+            <ul>
+                <li>Celebrity</li>
+                <li>Fine Jewelry</li>
+                <li>Handmade</li>
+                <li>Uncategorized</li>
+                <li>Wedding</li>
+            </ul>
+        </div>
+
+        <div class="sidebar-section">
+            <h4>Latest Posts</h4>
+            <div class="latest-post">
+                <img src="{% static 'images/blog1.jpg' %}" />
+                <div>
+                    <p class="date">April 5, 2024</p>
+                    <p class="title">Latest Trends in Jewelry Fashion</p>
+                </div>
+            </div>
+
+            <div class="latest-post">
+                 <img src="{% static 'images/blog5.jpg' %}" />
+                <div>
+                    <p class="date">April 1, 2024</p>
+                    <p class="title">Exploring Fine Jewelry</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-section">
+            <h4>Social</h4>
+            <div class="social-icons">
+                <i>FB</i><i>IG</i><i>TW</i><i>YT</i>
+            </div>
+        </div>
+
+    </aside>
+
+    <!-- BLOG POSTS AREA -->
+    <main class="blog-content">
+
+        <div class="blog-card">
+          <img src="{% static 'images/blog3.jpg' %}" class="blog-img"  />
+
+            <div class="blog-tags">
+                <span>Questions</span>
+                <span>Handmade</span>
+            </div>
+
+            <h2 class="blog-title">Tips for Choosing the Perfect Jewelry</h2>
+            <p class="blog-date">April 14, 2024</p>
+            <p class="blog-text">
+                Our goal has always been to motivate, encourage and release our fellow creatives...
+            </p>
+            <a href="#" class="read-btn">READ MORE</a>
+        </div>
+
+        <div class="blog-card">
+            <!-- <img src="https://via.placeholder.com/800x450" class="blog-img"> -->
+              <img src="{% static 'images/blog5.jpg' %}" class="blog-img"  />
+
+            <div class="blog-tags">
+                <span>Clarity</span>
+                <span>Questions</span>
+            </div>
+
+            <h2 class="blog-title">Post Format Gallery Blogs</h2>
+            <p class="blog-date">April 10, 2024</p>
+            <p class="blog-text">
+                Nunc aliquet, justo non commodo convallis, velit...
+            </p>
+            <a href="#" class="read-btn">READ MORE</a>
+        </div>
+
+    </main>
+</div>
+
+
+<!-- blog-2 -->
+ <div class="gag-container">
+
+    <div class="gag-categories">
+        <span>CELEBRITY</span>
+        <span>GEMSTONES</span>
+    </div>
+
+    <h1 class="gag-title">Post format gallery blogs</h1>
+
+    <p class="gag-author">By <strong>Wpbingo</strong> on April 15, 2024</p>
+
+    <div class="gag-text">
+        <p>
+            Nunc aliquet, justo non commodo congue, velit sem pulvinar enim...
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+        </p>
+        <p>
+            Nunc in lacus vel metus placerat elementum.
+        </p>
+    </div>
+
+    <div class="gag-gallery">
+        <img src="{% static 'images/blog1.jpg' %}" alt="">
+        <img src="{% static 'images/blog3.jpg' %}" alt="">
+        <img src="{% static 'images/blog5.jpg' %}" alt="">
+    </div>
+
+    <div class="gag-tags">
+        <span>Tags :</span>
+        <div class="gag-tag-items">
+            <span>ELECTRIC</span>
+            <span>FASHION</span>
+            <span>JWELRY</span>
+            <span>MEDICAL</span>
+            <span>MINIMAL</span>
+            <span>ORGANIC</span>
+            <span>SIMPLE</span>
+            <span>SPORT</span>
+        </div>
+    </div>
+
+    <div class="gag-share">
+        <span>Share :</span>
+        <div class="gag-icons">
+            <i class="gag-fb">F</i>
+            <i class="gag-tw">X</i>
+            <i class="gag-ins">○</i>
+            <i class="gag-pin">P</i>
+        </div>
+    </div>
+
+</div>
+
+<!-- blog-2 -->
+<div class="gag-comment-section">
+
+    <!-- Previous / Next Navigation -->
+    <div class="gag-post-nav">
+        <a href="#" class="gag-prev">← PREVIOUS <br> Artisanal Jewelry Creations</a>
+        <a href="#" class="gag-next">NEXT → <br> Post Format Video Blogs</a>
+    </div>
+
+    <h2 class="gag-reply-title">Leave a Reply</h2>
+    <p class="gag-note">Your email address will not be published. Required fields are marked *</p>
+
+    <!-- Django Comment Form -->
+    <form method="POST" class="gag-comment-form">
+        {% csrf_token %}
+
+        <!-- Comment Textarea -->
+        <textarea name="comment" class="gag-textarea" placeholder="Your Comment Here..." required></textarea>
+
+        <!-- Name + Email Row -->
+        <div class="gag-row">
+            <input type="text" name="name" class="gag-input" placeholder="Name *" required>
+            <input type="email" name="email" class="gag-input" placeholder="Email *" required>
+        </div>
+
+        <!-- Website -->
+        <input type="text" name="website" class="gag-input-full" placeholder="Website">
+
+        <!-- Submit Button -->
+        <button type="submit" class="gag-submit">POST COMMENT</button>
+    </form>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

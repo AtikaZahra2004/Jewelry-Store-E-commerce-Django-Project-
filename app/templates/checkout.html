@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Checkout{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/checkout.css' %}">
+{% endblock %}
+
+{% block content %}
+
+
+<div class="shop-full-banner">
+    <p class="breadcrumb">
+    <a href="{% url 'home' %}">Home</a> &gt;
+    <a href="{% url 'checkout' %}">Checkout</a>
+</p>
+
+</div>
+
+<div class="checkout-container">
+
+    <div class="cart-nav">
+        <a href="{% url 'cart' %}">Cart</a>
+        <a class="active" href="{% url 'checkout' %}">Checkout</a>
+        <a href="#">Order Tracking</a>
+    </div>
+
+    <div class="coupon-box">
+        <span>🏷️ Have a Coupon? <a href="#">Click Here To Enter Your Code</a></span>
+    </div>
+
+    <!-- 🟢 FORM START -->
+    <form id="checkout-form" method="POST" action="{% url 'checkout' %}">
+        {% csrf_token %}
+
+        <div class="checkout-content">
+
+            <!-- LEFT -->
+            <div class="billing-details">
+                <h3>Billing details</h3>
+
+                <label>First name *</label>
+                <input type="text" name="fname" required>
+
+                <label>Last name *</label>
+                <input type="text" name="lname" required>
+
+                <label>Company name</label>
+                <input type="text" name="company">
+
+                <label>Country *</label>
+                <select name="country"><option>India</option></select>
+
+                <label>Street address *</label>
+                <input type="text" name="address" required>
+                <input type="text" name="address2" placeholder="Apartment, suite">
+
+                <label>City *</label>
+                <input type="text" name="city" id="city" required>
+
+                <label>State *</label>
+                <input type="text" name="state" id="state" required>
+
+                <label>PIN *</label>
+                <input type="text" name="pincode" id="pincode" required>
+
+                <label>Phone *</label>
+                <input type="text" name="phone" required>
+
+                <label>Email *</label>
+                <input type="email" name="email" required>
+
+                <label>Order Notes</label>
+                <textarea name="notes"></textarea>
+
+                <!-- Hidden payment method -->
+                <input type="hidden" name="payment_method" id="payment_method" value="cod">
+            </div>
+
+            <!-- RIGHT -->
+            <div class="order-summary">
+                <h3>Product</h3>
+
+                {% for item_id, item in cart.items %}
+                <div class="summary-row">
+                    <img src="{{ item.image }}">
+                    <p>{{ item.name }} ({{ item.quantity }})</p>
+                    <strong>{{ item.price }}₹</strong>
+                </div>
+                {% endfor %}
+
+                <h4>Payment Methods</h4>
+
+                <label><input type="radio" class="pay-radio" name="payment" value="razorpay"> Razorpay</label>
+                <label><input type="radio" class="pay-radio" name="payment" value="paypal"> PayPal</label>
+                <label><input type="radio" class="pay-radio" name="payment" value="cod" checked> Cash on Delivery</label>
+
+                <button id="place-order" class="place-order-btn">PLACE ORDER</button>
+
+            </div>
+        </div>
+    </form>
+    <!-- 🟢 FORM END -->
+
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+
+console.log("JS Loaded Successfully!");
+
+// payment radio buttons
+document.querySelectorAll(".pay-radio").forEach(radio => {
+    radio.addEventListener("change", function () {
+        console.log("You selected =", this.value);
+        document.getElementById("payment_method").value = this.value;
+    });
+});
+
+// place order button
+document.getElementById("place-order").addEventListener("click", function(e){
+    e.preventDefault();
+    let form = document.getElementById("checkout-form");
+
+    if (!form.reportValidity()) return;
+
+    form.submit();
+});
+
+</script>
+{% endblock %}

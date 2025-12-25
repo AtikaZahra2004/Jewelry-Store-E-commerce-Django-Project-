@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+{% block title %}My Addresses{% endblock %}
+
+{% block content %}
+
+<style>
+.dashboard-container {
+    display: flex;
+    width: 85%;
+    margin: 40px auto;
+    gap: 40px;
+}
+
+.dashboard-menu {
+    width: 25%;
+    background: #f5f5f5;
+    padding: 20px;
+    border-radius: 6px;
+}
+
+.dashboard-menu a {
+    display: block;
+    padding: 12px 0;
+    border-bottom: 1px solid #ddd;
+    text-decoration: none;
+    color: black;
+}
+
+.dashboard-menu a:hover {
+    color: #333;
+}
+
+/* Right Section */
+.address-content {
+    width: 75%;
+}
+
+.address-box {
+    background: #f5f5f5;
+    padding: 20px;
+    border-radius: 4px;
+    width: 48%;
+}
+
+.address-flex {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.address-title {
+    font-weight: bold;
+}
+
+.address-btn {
+    font-size: 14px;
+    color: black;
+    text-decoration: underline;
+    cursor: pointer;
+}
+</style>
+
+<h1 style="text-align:center; margin-top:40px;">My Account</h1>
+
+<div class="dashboard-container">
+
+    <!-- LEFT MENU -->
+    <div class="dashboard-menu">
+          <a href="{% url 'dashboard' %}">Dashboard</a>
+        <a href="{% url 'orders' %}">Orders</a>
+        <a href="{% url 'downloads' %}">Downloads</a>
+        <a href="{% url 'addresses' %}">Addresses</a>
+        <a href="{% url 'account_details' %}">Account details</a>
+        <a href="{% url 'compare' %}">Compare</a>
+        <a href="{% url 'wishlist' %}">Wishlist</a>
+        <a href="{% url 'logout' %}">Log out</a>
+    </div>
+
+    <!-- RIGHT SECTION -->
+    <div class="address-content">
+
+        <p>The following addresses will be used on the checkout page by default.</p>
+
+        <div class="address-flex">
+
+            <!-- Billing -->
+            <div class="address-box">
+                <div class="address-title">Billing address</div>
+                <div class="address-btn">Add Billing address</div>
+                <p style="margin-top: 20px;">You have not set up this type of address yet.</p>
+            </div>
+
+            <!-- Shipping -->
+            <div class="address-box">
+                <div class="address-title">Shipping address</div>
+                <div class="address-btn">Add Shipping address</div>
+                <p style="margin-top: 20px;">You have not set up this type of address yet.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

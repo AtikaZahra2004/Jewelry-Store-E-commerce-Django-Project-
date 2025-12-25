@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Order Success{% endblock %}
+
+{% block css %}
+<style>
+.order-top-box {
+    border: 1px dashed #000;
+    padding: 15px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.order-info-bar {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.order-info-bar div {
+    font-size: 14px;
+}
+
+.order-details-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+.order-details-table th,
+.order-details-table td {
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+}
+
+.order-details-table th {
+    background: #fafafa;
+    font-weight: bold;
+}
+
+.address-box {
+    width: 45%;
+    border: 1px dashed #bbb;
+    padding: 20px;
+    font-size: 14px;
+}
+
+.address-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 35px;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+
+<div class="order-top-box">
+    Thank you. Your order has been received.
+</div>
+
+<div class="order-info-bar">
+    <div>Order number: <strong>{{ order.id }}</strong></div>
+    <div>Date: <strong>{{ order.created_at|date:"F d, Y" }}</strong></div>
+    <div>Total: <strong>{{ order.total_amount }}₹</strong></div>
+    <div>Payment method: <strong>{{ order.payment_method }}</strong></div>
+</div>
+
+<h3>Order details</h3>
+
+<table class="order-details-table">
+    <tr>
+        <th>Product</th>
+        <th>Total</th>
+    </tr>
+
+    {% for item in items %}
+    <tr>
+        <td>{{ item.product_name }} × {{ item.quantity }}</td>
+        <td>{{ item.price }}₹</td>
+    </tr>
+    {% endfor %}
+
+    <tr>
+        <td><strong>Subtotal:</strong></td>
+        <td>{{ order.total_amount }}₹</td>
+    </tr>
+
+    <tr>
+        <td><strong>Shipping:</strong></td>
+        <td>Flat rate</td>
+    </tr>
+
+    <tr>
+        <td><strong>Payment method:</strong></td>
+        <td>{{ order.payment_method }}</td>
+    </tr>
+
+    <tr>
+        <td><strong>Total:</strong></td>
+        <td><strong>{{ order.total_amount }}₹</strong></td>
+    </tr>
+</table>
+
+<div class="address-row">
+    <div class="address-box">
+        <h4>Billing address</h4>
+        {{ order.full_name }}<br>
+        {{ order.address }}<br>
+        {{ order.city }}<br>
+        {{ order.state }} - {{ order.pincode }}<br>
+        {{ order.phone }}<br>
+        {{ order.email }}
+    </div>
+
+    <div class="address-box">
+        <h4>Shipping address</h4>
+        {{ order.full_name }}<br>
+        {{ order.address }}<br>
+        {{ order.city }}<br>
+        {{ order.state }} - {{ order.pincode }}<br>
+        {{ order.phone }}<br>
+        {{ order.email }}
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,412 @@
+ {% extends "base.html" %}
+{% load static %}
+
+{% block title %}Home - My Site{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+
+
+
+<section class="hero-wrap">
+  <img src="{% static 'images/bg4.webp' %}" alt="Hero">
+
+  <div class="hero-info">
+    <h1>Earrings for a<br>Touch</h1>
+    <p>High quality materials, diverse designs</p>
+    <a href="{% url 'shop' %}" class="hero-btn">SHOP NOW</a>
+  </div>
+</section>
+
+
+<!-- home---2 -->
+<section class="products-section">
+    <h2 class="section-title">Gift Insipiration</h2>
+
+    <div class="products-grid">
+
+        <!-- PRODUCT CARD 1 -->
+        <div class="product-card">
+            <div class="image-box">
+                <img src="{% static 'images/r1.webp' %}" class="img-front" />
+                <img src="{% static 'images/r.webp' %}" class="img-back" />
+            </div>
+            <div class="product-icons">
+                <span class="icon"><img src="{% static 'icons/bagg.svg' %}" alt="Add to Cart"></span>
+                <span class="icon"><img src="{% static 'icons/search.svg' %}" alt="Quick View"></span>
+                <span class="icon"><img src="{% static 'icons/heart.svg' %}" alt="Wishlist"></span>
+                <span class="icon"><img src="{% static 'icons/compare.svg' %}" alt="Compare"></span>
+            </div>
+            <h3>Gold Necklace</h3>
+            <p class="price">₹9,999</p>
+        </div>
+
+        <!-- PRODUCT CARD 2 -->
+        <div class="product-card">
+            <div class="image-box">
+                <img src="{% static 'images/e4.webp' %}" class="img-front" />
+                <img src="{% static 'images/e1.webp' %}" class="img-back" />
+            </div>
+            <div class="product-icons">
+                <span class="icon"><img src="{% static 'icons/bagg.svg' %}" alt="Add to Cart"></span>
+                <span class="icon"><img src="{% static 'icons/search.svg' %}" alt="Quick View"></span>
+                <span class="icon"><img src="{% static 'icons/heart.svg' %}" alt="Wishlist"></span>
+                <span class="icon"><img src="{% static 'icons/compare.svg' %}" alt="Compare"></span>
+            </div>
+            <h3>Diamond Earrings</h3>
+            <p class="price">₹5,499</p>
+        </div>
+
+        <!-- PRODUCT CARD 3 -->
+        <div class="product-card">
+            <div class="image-box">
+                <img src="{% static 'images/c1.webp' %}" class="img-front" />
+                <img src="{% static 'images/c.webp' %}" class="img-back" />
+            </div>
+            <div class="product-icons">
+                <span class="icon"><img src="{% static 'icons/bagg.svg' %}" alt="Add to Cart"></span>
+                <span class="icon"><img src="{% static 'icons/search.svg' %}" alt="Quick View"></span>
+                <span class="icon"><img src="{% static 'icons/heart.svg' %}" alt="Wishlist"></span>
+                <span class="icon"><img src="{% static 'icons/compare.svg' %}" alt="Compare"></span>
+            </div>
+            <h3>Rose Gold Ring</h3>
+            <p class="price">₹2,499</p>
+        </div>
+
+        <!-- PRODUCT CARD 4 -->
+        <div class="product-card">
+            <div class="image-box">
+                <img src="{% static 'images/n4.webp' %}" class="img-front" />
+                <img src="{% static 'images/n.webp' %}" class="img-back" />
+            </div>
+            <div class="product-icons">
+                <span class="icon"><img src="{% static 'icons/bagg.svg' %}" alt="Add to Cart"></span>
+                <span class="icon"><img src="{% static 'icons/search.svg' %}" alt="Quick View"></span>
+                <span class="icon"><img src="{% static 'icons/heart.svg' %}" alt="Wishlist"></span>
+                <span class="icon"><img src="{% static 'icons/compare.svg' %}" alt="Compare"></span>
+            </div>
+            <h3>Bracelet</h3>
+            <p class="price">₹4,299</p>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- home--3 -->
+
+<section class="two-banner-section">
+
+    <!-- LEFT BLOCK -->
+    <div class="banner-box">
+        <div class="banner-image">
+            <img src="{% static 'images/banner-1.jpg' %}" alt="">
+        </div>
+
+        <div class="banner-text">
+            <p class="tagline">A Symbol of Renewal</p>
+            <h2>Enchanted Lotus</h2>
+            <a href="#" class="banner-btn">SHOP NOW</a>
+        </div>
+    </div>
+
+    <!-- RIGHT BLOCK -->
+    <div class="banner-box">
+        <div class="banner-image">
+            <img src="{% static 'images/banner-2.jpg' %}" alt="">
+        </div>
+
+        <div class="banner-text">
+            <p class="tagline">A Symbol of Renewal</p>
+            <h2>Enchanted Lotus</h2>
+            <a href="#" class="banner-btn">SHOP NOW</a>
+        </div>
+    </div>
+
+</section>
+
+
+
+<!-- home-11 -->
+<section class="earloop-section">
+
+    <button class="slider-arrow left" onclick="slideLeft()">&#10094;</button>
+
+    <div class="slider-viewport">
+        <div class="slider-track" id="sliderTrack">
+
+            <div class="earloop-card">
+                <img src="/static/images/banner-13.webp">
+                <div class="earloop-overlay">
+                    <h3>Earloop</h3>
+                    <a href="{% url 'shop' %}">SHOP NOW</a>
+                </div>
+            </div>
+
+            <div class="earloop-card">
+                <img src="/static/images/banner-17.jpg">
+                <div class="earloop-overlay">
+                    <h3>Earloop</h3>
+                    <a href="{% url 'shop' %}">SHOP NOW</a>
+                </div>
+            </div>
+
+            <div class="earloop-card">
+                <img src="/static/images/banner-12.webp">
+                <div class="earloop-overlay">
+                    <h3>Earloop</h3>
+                    <a href="{% url 'shop' %}">SHOP NOW</a>
+                </div>
+            </div>
+
+            <div class="earloop-card">
+                <img src="/static/images/banner-11.webp">
+                <div class="earloop-overlay">
+                <a href="{% url 'shop' %}">SHOP NOW</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <button class="slider-arrow right" onclick="slideRight()">&#10095;</button>
+
+</section>
+
+
+<!-- home--10 -->
+
+<section class="journey-section">
+    <div class="journey-wrap">
+
+        <span class="journey-tag">HANDCRAFTED JEWELRY</span>
+
+        <h2 class="journey-title">
+            Designed for the Journey
+        </h2>
+
+        <p class="journey-text">
+            Satya Jewelry is named for satya, the Sanskrit word for “truth.”
+            Each piece of Satya Jewelry is designed to resonate deeply
+            with its wearer—to connect to one’s own truth and empower
+            a personal journey.
+        </p>
+
+        <a href="{% url 'about' %}" class="journey-btn">ABOUT US</a>
+
+    </div>
+</section>
+
+
+
+<!-- home---3 -->
+ <div class="css-slider">
+
+    <input type="radio" name="slide" id="s1" checked>
+    <input type="radio" name="slide" id="s2">
+    <input type="radio" name="slide" id="s3">
+    <input type="radio" name="slide" id="s4">
+
+    <div class="slides">
+        <div class="img"><img src="{% static 'images/blog.jpg' %}"></div>
+          <div class="img"><img src="{% static 'images/blog5.jpg' %}"></div>
+               <div class="img"><img src="{% static 'images/blog3.jpg' %}"></div>
+                    <div class="img"><img src="{% static 'images/blog1.jpg' %}"></div>
+                     <div class="img"><img src="{% static 'images/blog.jpg' %}"></div>
+                      <div class="img"><img src="{% static 'images/blog5.jpg' %}"></div>
+          <div class="img"><img src="{% static 'images/blog1.jpg' %}"></div>
+               <div class="img"><img src="{% static 'images/blog3.jpg' %}"></div>
+                    <div class="img"><img src="{% static 'images/blog5.jpg' %}"></div>
+                     <div class="img"><img src="{% static 'images/blog.jpg' %}"></div>
+         
+    </div>
+
+    
+    <label class="arrow left" for="s4"></label>
+    <label class="arrow right" for="s2"></label>
+
+    <label class="arrow left second" for="s1"></label>
+    <label class="arrow right second" for="s3"></label>
+
+    <label class="arrow left third" for="s2"></label>
+    <label class="arrow right third" for="s4"></label>
+
+    <label class="arrow left fourth" for="s3"></label>
+    <label class="arrow right fourth" for="s1"></label>
+
+</div>
+
+<!-- home--4 -->
+
+<section class="category-section">
+    <h2 class="category-title">Shop by categories</h2>
+
+    <div class="category-grid">
+
+        <!-- Item 1 -->
+        <div class="category-box">
+            <img src="{% static 'images/ctg-1.jpg' %}" alt="">
+            <div class="cat-label">NECKLACES</div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="category-box">
+            <img src="{% static 'images/ctg-2.jpg' %}" alt="">
+            <div class="cat-label">BRACELETS</div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="category-box">
+            <img src="{% static 'images/ctg-3.jpg' %}" alt="">
+            <div class="cat-label">EARRINGS</div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="category-box">
+            <img src="{% static 'images/ctg-4.jpg' %}" alt="">
+            <div class="cat-label">RINGS</div>
+        </div>
+
+    </div>
+</section>
+
+
+
+
+
+
+<!-- home--7 -->
+
+<section class="style-section">
+    <div class="style-text-box">
+        <h1 class="style-title">Elevate Your Style</h1>
+        <p class="style-description">
+            From statement pieces to delicate designs, our collection has the perfect accessory 
+            to complement any outfit and elevate your look
+        </p>
+        <a href="#" class="style-btn">Shop Now</a>
+    </div>
+
+    <div class="style-image-group">
+        <img src="{% static 'images/banner-3.webp' %}" class="style-img-small" alt="">
+   
+    </div>
+</section>
+
+
+
+<!-- home--9 -->
+ <section class="jewelry-section">
+    <h2>Adorn yourself  with empowering jewelry</h2>
+
+    <div class="jewelry-grid">
+        <div class="card">
+            <img src="{% static 'images/ctg-8.webp' %}" alt="">
+            <button>NECKLACES</button>
+        </div>
+
+        <div class="card">
+                    <img src="{% static 'images/ctg-9.webp' %}" alt="">
+            <button>RINGS</button>
+        </div>
+
+        <div class="card">
+                    <img src="{% static 'images/ctg-6.jpg' %}" alt="">
+            <button>EARRINGS</button>
+        </div>
+
+        <div class="card">
+                   <img src="{% static 'images/ctg-7.jpg' %}" alt="">
+            <button>RINGS</button>
+        </div>
+    </div>
+</section>
+
+
+<!-- home-6 -->
+ <section class="banner-section">
+    <div class="banner-overlay"></div>
+
+    <div class="banner-content">
+        <p class="banner-tagline">A Legacy of Beauty and Quality</p>
+        <h1 class="banner-title">
+            Fine Jewelry<br>
+            Collection
+        </h1>
+        <a href="{% url 'shop' %}" class="banner-btn">SHOP COLLECTION</a>
+    </div>
+</section>
+
+<!-- home-5 -->
+ <section class="features">
+    <div class="feature-box">
+               <img src="{% static 'icons/box.svg' %}" alt="Flexible Payment">
+        <h3>Free Shipping</h3>
+        <p>You will love at great low prices</p>
+    </div>
+
+    <div class="feature-box">
+        <img src="{% static 'icons/payment.svg' %}" alt="Flexible Payment">
+        <h3>Flexible Payment</h3>
+        <p>Pay with Multiple Credit Cards online</p>
+    </div>
+
+    <div class="feature-box">
+               <img src="{% static 'icons/return1.svg' %}" alt="Flexible Payment">
+        <h3>14 Day Returns</h3>
+        <p>Within 30 days for an exchange.</p>
+    </div>
+
+    <div class="feature-box">
+        <img src="{% static 'icons/support.svg' %}" alt="Flexible Payment">
+        <h3>Premium Support</h3>
+        <p>Outstanding premium support exchange</p>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %} 

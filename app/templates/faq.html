@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Product - My Site{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/faq.css' %}">
+{% endblock %}
+
+{% block content %}
+
+
+  <div class="shop-full-banner">
+    <p class="breadcrumb">
+    <a href="{% url 'home' %}">Home</a> &gt;
+    <a href="{% url 'faq' %}">FAQ</a>
+</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="faq-section">
+  <h2>Frequently Asked Questions.</h2>
+
+  <div class="faq-grid">
+
+    <!-- 01 -->
+    <div class="faq-box">
+      <h3>01. The order</h3>
+
+      <p class="q">When do I receive my order?</p>
+      <p class="a">
+        When placing the order, a day of shipment is indicated. After the order
+        has been placed, the same delivery time will also be stated on the
+        order confirmation...
+      </p>
+
+      <p class="q">I now see a longer delivery time. How can I cancel it?</p>
+      <p class="a">
+        If the order has a longer delivery time than before, you can cancel a
+        part of the order by contacting customer service...
+      </p>
+
+      <p class="q">When will I receive the invoice?</p>
+      <p class="a">
+        You will automatically receive it after payment. You can also download
+        it by logging into your account.
+      </p>
+    </div>
+
+    <!-- 02 -->
+    <div class="faq-box">
+      <h3>02. Shipment</h3>
+
+      <p class="q">When do I receive my order?</p>
+      <p class="a">Same shipment-day rule applies…</p>
+
+      <p class="q">I now see a longer delivery time. How can I cancel it?</p>
+      <p class="a">Contact customer support…</p>
+
+      <p class="q">When will I receive the invoice?</p>
+      <p class="a">After completing payment…</p>
+    </div>
+
+    <!-- 03 -->
+    <div class="faq-box">
+      <h3>03. The order</h3>
+      <p class="q">When do I receive my order?</p>
+      <p class="a">Shipment day is mentioned on the confirmation…</p>
+
+      <p class="q">How can I cancel?</p>
+      <p class="a">Customer support can cancel parts…</p>
+
+      <p class="q">When will I receive the invoice?</p>
+      <p class="a">Check your email or account dashboard…</p>
+    </div>
+
+    <!-- 04 -->
+    <div class="faq-box">
+      <h3>04. Returns, exchanges and complaints</h3>
+
+      <p class="q">When do I receive my order?</p>
+      <p class="a">Delivery time is mentioned on your order confirmation…</p>
+
+      <p class="q">How can I cancel?</p>
+      <p class="a">You can cancel before shipment…</p>
+
+      <p class="q">When will I receive the invoice?</p>
+      <p class="a">Automatically emailed after payment…</p>
+    </div>
+
+  </div>
+</section>
+{% endblock %}

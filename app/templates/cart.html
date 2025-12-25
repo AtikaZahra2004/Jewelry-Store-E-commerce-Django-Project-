@@ -1,0 +1,134 @@
+
+
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/cart.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+
+
+    <div class="shop-full-banner">
+    <p class="breadcrumb">
+    <a href="{% url 'home' %}">Home</a> &gt;
+    <a href="{% url 'cart' %}">Cart</a>
+</p>
+</div>
+
+<div class="cart-nav">
+    <a href="{% url 'cart' %}" class="active">Cart</a>
+    <a href="{% url 'checkout' %}">Checkout</a>
+    <a href="{% url 'order_tracking' %}">Order Tracking</a>
+</div>
+
+<div class="cart-page">
+
+    <!-- FREE SHIPPING BOX -->
+    <div class="free-shipping-box">
+        <p>Congratulations, you've got free shipping!</p>
+
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+            <span class="truck-icon">🚚</span>
+        </div>
+    </div>
+
+    <!-- MAIN CONTAINER -->
+    <div class="cart-container">
+
+        <!-- LEFT CART TABLE -->
+        <div class="cart-main">
+
+            <table class="cart-table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Subtotal</th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for item_id, item in cart.items %}
+                    <tr>
+                        <td class="product-info">
+                            <img src="{{ item.image }}" class="product-img">
+                            {{ item.name }}
+                        </td>
+
+                        <td>{{ item.price }}₹</td>
+
+                        <td>
+                            <div class="qty-box">
+                               <a href="{% url 'decrease_cart' item_id %}" class="qty-btn">−</a>
+                                 <span class="qty">{{ item.quantity }}</span>
+                               <a href="{% url 'increase_cart' item_id %}" class="qty-btn">+</a>
+
+                            </div>
+                        </td>
+
+                        <td>{{ item.price }}</td>
+
+                        <td><a href="{% url 'remove_cart' item_id %}" class="remove">×</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <!-- COUPON & CONTINUE -->
+            <div class="cart-actions">
+                <input type="text" placeholder="Coupon code" class="coupon-input">
+                <button class="apply-btn">APPLY COUPON</button>
+                <a href="{% url 'shop' %}" class="continue-btn">CONTINUE SHOPPING</a>
+            </div>
+
+        </div>
+
+        <!-- RIGHT SIDEBAR -->
+        <div class="cart-sidebar">
+    <h3>Cart totals</h3>
+
+    <div class="cart-sidebar-content">
+
+        <p>
+            <span class="label">Subtotal</span>
+            <span class="value">{{ subtotal }}₹</span>
+        </p>
+
+        <p class="label">Shipping</p>
+
+        <p>
+            <label><input type="radio" checked> Free shipping</label><br>
+            <label><input type="radio"> Flat rate</label>
+        </p>
+
+        <p class="shipping-destination">
+            Shipping to <strong>India.</strong>
+        </p>
+
+        <p class="change-address">Change address</p>
+
+        <p class="total-row">
+            <span class="label">Total</span>
+            <span class="value">{{ subtotal }}$</span>
+        </p>
+
+        <a href="{% url 'checkout' %}" class="checkout-btn">PROCEED TO CHECKOUT</a>
+
+    </div>
+</div>
+
+
+    </div>
+
+</div>
+
+
+{% endblock %}

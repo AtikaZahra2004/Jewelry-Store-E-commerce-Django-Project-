@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Order Tracking{% endblock %}
+
+{% block css %}
+<style>
+
+.shop-full-banner {
+    width: 100%;
+    height: 400px; /* You can increase to 400/500 based on your design */
+    background-image: url("../images/bg4.webp");;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+
+
+
+.breadcrumb {
+    font-size: 24px;
+    color: #666;
+}
+
+.breadcrumb a {
+    color: #000;
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb span {
+    margin: 0 6px;
+}
+
+    
+.order-track-wrapper{
+    max-width:700px;
+    margin:60px auto;
+    font-family: Arial, sans-serif;
+}
+
+.order-track-wrapper p{
+    font-size:15px;
+    color:#555;
+    margin-bottom:25px;
+}
+
+.track-form label{
+    display:block;
+    font-weight:600;
+    margin-bottom:6px;
+}
+
+.track-form input{
+    width:100%;
+    padding:12px;
+    border:1px solid #ddd;
+    margin-bottom:20px;
+    font-size:14px;
+}
+
+.track-btn{
+    background:#000;
+    color:#fff;
+    padding:12px 40px;
+    border:none;
+    cursor:pointer;
+    font-size:14px;
+}
+
+.track-btn:hover{
+    background:#222;
+}
+
+.error{
+    margin-top:20px;
+    color:red;
+    font-weight:600;
+}
+
+.order-result{
+    margin-top:40px;
+    border-top:1px solid #ddd;
+    padding-top:20px;
+}
+
+.order-result h3{
+    margin-bottom:15px;
+}
+
+.order-result p{
+    margin:6px 0;
+}
+
+</style>
+{% endblock %}
+
+{% block content %}
+
+
+
+
+<div class="order-track-wrapper">
+
+    <p>
+        To track your order please enter your Order ID in the box below and press the
+        “Track” button. This was given to you on your receipt and in the confirmation
+        email you should have received.
+    </p>
+
+    <form method="POST" class="track-form">
+        {% csrf_token %}
+
+        <label>Order ID</label>
+        <input type="text" name="order_id"
+               placeholder="Found in your order confirmation email." required>
+
+        <label>Billing email</label>
+        <input type="email" name="email"
+               placeholder="Email you used during checkout." required>
+
+        <button type="submit" class="track-btn">TRACK</button>
+    </form>
+
+    {% if error %}
+        <div class="error">{{ error }}</div>
+    {% endif %}
+
+    {% if order %}
+    <div class="order-result">
+        <h3>Order Details</h3>
+        <p><strong>Order ID:</strong> {{ order.id }}</p>
+        <p><strong>Date:</strong> {{ order.created_at }}</p>
+        <p><strong>Total:</strong> {{ order.total_amount }}₹</p>
+        <p><strong>Payment:</strong> {{ order.payment_method }}</p>
+        <p><strong>Status:</strong> {{ order.status }}</p>
+    </div>
+    {% endif %}
+
+</div>
+
+{% endblock %}

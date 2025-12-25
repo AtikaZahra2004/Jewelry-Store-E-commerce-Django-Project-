@@ -1,0 +1,24 @@
+{% if cart %}
+    {% for id, item in cart.items %}
+    <div class="mini-cart-item">
+
+        <img src="{{ item.image }}" class="mini-cart-img">
+
+        <div class="mini-cart-info">
+            <h4>{{ item.name }}</h4>
+            <p>{{ item.price }}₹</p>
+
+            <div class="qty-controls">
+                <button class="qty-btn decrease" data-id="{{ id }}">-</button>
+                <span>{{ item.quantity }}</span>
+                <button class="qty-btn increase" data-id="{{ id }}">+</button>
+            </div>
+
+            <button class="remove-btn" data-id="{{ id }}">Remove</button>
+        </div>
+
+    </div>
+    {% endfor %}
+{% else %}
+    <p>No items in cart.</p>
+{% endif %}

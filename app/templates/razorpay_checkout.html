@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Processing payment</title>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+
+<h2>Processing payment...</h2>
+
+<script>
+var options = {
+    "key": "{{ razorpay_key }}",
+    "amount": "{{ amount }}",
+    "currency": "INR",
+    "name": "Jewelry Store",
+    "description": "Order Payment",
+    "order_id": "{{ razorpay_order_id }}",
+    "handler": function (response){
+        window.location.href = "/order-success/{{ order.id }}/";
+    },
+    "theme": {
+        "color": "#000000"
+    }
+};
+
+var rzp = new Razorpay(options);
+rzp.open();
+</script>
+
+</body>
+</html>

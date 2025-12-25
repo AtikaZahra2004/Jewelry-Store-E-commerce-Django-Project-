@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block title %}My Orders{% endblock %}
+
+{% block content %}
+
+<style>
+.dashboard-container {
+    display: flex;
+    width: 80%;
+    margin: 40px auto;
+    gap: 40px;
+}
+
+.dashboard-menu {
+    width: 25%;
+    background: #f5f5f5;
+    padding: 20px;
+    border-radius: 6px;
+}
+
+.dashboard-menu a {
+    display: block;
+    padding: 12px 0;
+    border-bottom: 1px solid #ddd;
+    text-decoration: none;
+    color: black;
+}
+
+.dashboard-menu a:hover {
+    color: #333;
+}
+
+.dashboard-content {
+    width: 70%;
+}
+
+.no-order-box {
+    padding: 20px;
+    background: #f7f7f7;
+    border-top: 3px solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.browse-btn {
+    background: black;
+    color: white;
+    padding: 10px 18px;
+    text-decoration: none;
+    border-radius: 2px;
+    font-size: 14px;
+}
+</style>
+
+<h1 style="text-align:center; margin-top:40px;">My Account</h1>
+
+<div class="dashboard-container">
+
+    <!-- LEFT MENU -->
+    <div class="dashboard-menu">
+     <a href="{% url 'dashboard' %}">Dashboard</a>
+        <a href="{% url 'orders' %}">Orders</a>
+        <a href="{% url 'downloads' %}">Downloads</a>
+        <a href="{% url 'addresses' %}">Addresses</a>
+        <a href="{% url 'account_details' %}">Account details</a>
+        <a href="{% url 'compare' %}">Compare</a>
+        <a href="{% url 'wishlist' %}">Wishlist</a>
+        <a href="{% url 'logout' %}">Log out</a>
+    </div>
+
+    <!-- RIGHT CONTENT -->
+    <div class="dashboard-content">
+
+        <div class="no-order-box">
+            <p>⚠️ No Order Has Been Made Yet.</p>
+            <a href="{% url 'shop' %}" class="browse-btn">✔ BROWSE PRODUCTS</a>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

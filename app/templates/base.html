@@ -1,0 +1,452 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}Jewelry Homepage{% endblock %}</title>
+
+    <!-- BASE CSS always include -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+    <!-- PAGE SPECIFIC CSS -->
+    {% block css %}{% endblock %}
+</head>
+<body>
+
+<header class="navbar">
+    <!-- LOGO IMAGE -->
+<div class="logo">
+  <a href="{% url 'home' %}" class="logo-icon">
+    <svg width="80" height="50" viewBox="0 0 100 100" fill="none">
+      <path d="M50 10 L90 50 L50 90 L10 50 Z"
+            stroke="white" stroke-width="6"/>
+      <path d="M50 25 L75 50 L50 75 L25 50 Z"
+            stroke="white" stroke-width="6"/>
+    </svg>
+  </a>
+</div>
+
+       
+    <input type="checkbox" id="menu-toggle">
+
+  
+    <label for="menu-toggle" class="hamburger">☰</label>
+    <nav>
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'shop' %}">Shop</a></li>
+            <li><a href="{% url 'product' %}">Blogs</a></li>
+            <li><a href="{% url 'blog' %}">Product</a></li>
+  <div class="menu-dropdown">
+    <li><a href="{% url 'page' %}">Page</a></li>
+
+    <div class="menu-list">
+        <a href="{% url 'about' %}">About</a>
+        <a href="{% url 'contact' %}">Contact</a>
+        <a href="{% url 'faq' %}">FAQ</a>
+         <a href="{% url 'page404' %}">Page</a>
+    </div>
+</div>
+
+
+        </ul>
+  
+    </nav>
+    
+<div class="icons">
+    <span><i class="fa-solid fa-magnifying-glass"></i></span>
+
+
+<!-- USER AREA -->
+<div class="nav-user-area">
+
+    {% if user.is_authenticated %}
+        <!-- LOGGED IN USER ICON -->
+        <div class="nav-user-logged" onclick="toggleUserDropdown()">
+            <span class="user-avatar">
+                {{ user.username|slice:":1"|upper }}
+            </span>
+        </div>
+
+        <!-- DROPDOWN -->
+        <div class="user-dropdown" id="userDropdown">
+            <a href="{% url 'dashboard' %}">Dashboard</a>
+        <a href="{% url 'orders' %}">Orders</a>
+            <a href="{% url 'downloads' %}">Downloads</a>
+            <a href="{% url 'addresses' %}">Addresses</a>
+            <a href="{% url 'account_details' %}">Account details</a>
+            <a href="{% url 'compare' %}">Compare</a>
+            <a href="{% url 'wishlist' %}">Wishlist</a>
+
+            <hr>
+            <a href="{% url 'logout' %}">Logout</a>
+        </div>
+
+    {% else %}
+        <!-- BEFORE LOGIN -->
+        <div class="nav-user-icon" onclick="openUserAuth()">
+            <i class="fa fa-user"></i>
+        </div>
+    {% endif %}
+
+</div>
+
+
+<span onclick="openWishlist()">
+    <i class="fa-regular fa-heart"></i>
+</span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {% comment %} <span><i class="fa-solid fa-heart"  ></i></span> {% endcomment %}
+    <span><a href="{% url 'cart' %}"><i class="fa-solid fa-cart-shopping"></i></a></span>
+</div>
+
+
+
+
+</header>
+
+{% block content %}
+
+
+{% endblock %}
+
+
+
+<!-- USER PROFILE ICON -->
+
+
+<!-- AUTH POPUP -->
+<div class="user-auth-overlay" id="userAuthOverlay">
+    <div class="user-auth-container">
+
+        <!-- CLOSE BUTTON -->
+        <span class="auth-close-btn" onclick="closeUserAuth()">×</span>
+
+        <!-- TOP IMAGE -->
+        <div class="auth-banner">
+            <img src="{% static 'images/banner-1.jpg' %}" alt="">
+        </div>
+
+        <!-- SIGN IN -->
+        <form class="auth-form auth-login-form" method="POST" action="{% url 'login' %}">
+            {% csrf_token %}
+            <h2>Sign in</h2>
+
+            <input class="auth-input" type="text" name="username" placeholder="Name*" required>
+
+            <div class="auth-password-wrapper">
+                <input class="auth-input" type="password" id="loginPassword" name="password" placeholder="Password*" required>
+                <span onclick="toggleAuthPassword('loginPassword')">👁</span>
+            </div>
+
+            <a href="#" class="auth-forgot-link">Forgot password?</a>
+
+            <button class="auth-btn">SIGN IN</button>
+
+            <p class="auth-switch-text">
+                Don't have an account?
+                <span onclick="showAuthSignup()">Sign up</span>
+            </p>
+        </form>
+
+        <!-- SIGN UP -->
+        <form class="auth-form auth-signup-form" method="POST" action="{% url 'signup' %}">
+            {% csrf_token %}
+            <h2>Sign up</h2>
+
+            <input class="auth-input" type="text" name="username" placeholder="Name*" required>
+            <input class="auth-input" type="email" name="email" placeholder="Email*" required>
+
+            <div class="auth-password-wrapper">
+                <input class="auth-input" type="password" id="signupPassword" name="password" placeholder="Password*" required>
+                <span onclick="toggleAuthPassword('signupPassword')">👁</span>
+            </div>
+
+            <button class="auth-btn">SIGN UP</button>
+
+            <p class="auth-switch-text">
+                Already have an account?
+                <span onclick="showAuthLogin()">Sign in</span>
+            </p>
+        </form>
+
+    </div>
+</div>
+
+
+
+
+
+
+<!-- home--6 -->
+ <footer class="footer">
+    <div class="footer-container">
+
+        <div class="footer-col">
+            <h3>EXPLORE</h3>
+            <ul>
+                <li>Jewellery</li>
+                <li>High Jewellery</li>
+                <li>Wedding & Engagement</li>
+                <li>Provenance and Peace</li>
+                <li>The 4Cs</li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h3>HELP</h3>
+            <ul>
+                <li>FAQs</li>
+                <li>Shipping</li>
+                <li>Returns</li>
+                <li>Size Guides</li>
+                <li>Materials & Care</li>
+                <li>Contact Us</li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h3>ABOUT US</h3>
+            <ul>
+                <li>About Us</li>
+                <li>The Rewards Stack</li>
+                <li>Sustainability</li>
+                <li>Careers</li>
+                <li>Blog</li>
+            </ul>
+        </div>
+
+        <div class="footer-col newsletter">
+            <h3>SIGN UP FOR 10% OFF</h3>
+            <p>Be the first to know about new releases, exclusive promotions, events and styling tips!</p>
+
+            <div class="subscribe-box">
+                <input type="email" placeholder="Email address..." />
+                <button>SUBSCRIBE</button>
+            </div>
+
+            <div class="social-icons">
+                <span>🎵</span>
+                <span>✕</span>
+                <span>📘</span>
+                <span>🅱</span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>Copyright © 2024. All Rights Reserved.</p>
+    </div>
+</footer>
+
+
+<!-- home-7 -->
+ <div id="cart-overlay" class="cart-overlay"></div>
+
+<div id="mini-cart" class="mini-cart">
+    <div class="mini-cart-header">
+        <h3>Shopping Cart</h3>
+        <span id="close-cart">&times;</span>
+    </div>
+
+    <div id="mini-cart-content">
+        Loading...
+    </div>
+
+    <div class="mini-cart-footer">
+        <p>Subtotal: <span id="mini-subtotal">0</span>₹</p>
+        <a href="{% url 'cart' %}" class="btn view-cart">VIEW CART</a>
+        <a href="#" class="btn checkout">CHECKOUT</a>
+    </div>
+</div>
+
+
+
+
+
+<script>
+
+
+// home11
+
+let index = 0;
+
+function slideRight() {
+    const track = document.getElementById("sliderTrack");
+    const cards = document.querySelectorAll(".earloop-card");
+    const visibleCards = window.innerWidth <= 768 ? 1 : 3;
+    const maxIndex = cards.length - visibleCards;
+
+    if (index < maxIndex) {
+        index++;
+        track.style.transform = `translateX(-${index * (100 / visibleCards)}%)`;
+    }
+}
+
+function slideLeft() {
+    const track = document.getElementById("sliderTrack");
+
+    if (index > 0) {
+        index--;
+        track.style.transform = `translateX(-${index * (100 / (window.innerWidth <= 768 ? 1 : 3))}%)`;
+    }
+}
+
+
+
+
+// cart
+
+
+function openCart() {
+    document.getElementById("mini-cart").classList.add("open");
+    document.getElementById("cart-overlay").classList.add("active");
+}
+
+function closeCart() {
+    document.getElementById("mini-cart").classList.remove("open");
+    document.getElementById("cart-overlay").classList.remove("active");
+}
+
+document.getElementById("close-cart").onclick = closeCart;
+document.getElementById("cart-overlay").onclick = closeCart;
+
+function loadMiniCart() {
+    fetch("/mini-cart/")
+    .then(res => res.json())
+    .then(data => {
+        document.getElementById("mini-cart-content").innerHTML = data.html;
+        document.getElementById("mini-subtotal").innerText = data.subtotal;
+        openCart();
+        attachCartEvents();
+    });
+}
+
+function attachCartEvents() {
+
+    document.querySelectorAll(".increase").forEach(btn => {
+        btn.onclick = () => updateQty("increase", btn.dataset.id);
+    });
+
+    document.querySelectorAll(".decrease").forEach(btn => {
+        btn.onclick = () => updateQty("decrease", btn.dataset.id);
+    });
+
+    document.querySelectorAll(".remove-btn").forEach(btn => {
+        btn.onclick = () => updateQty("remove", btn.dataset.id);
+    });
+}
+
+function updateQty(type, id) {
+    let url = "";
+
+    if (type === "increase") url = `/cart/increase/${id}/`;
+    if (type === "decrease") url = `/cart/decrease/${id}/`;
+    if (type === "remove") url = `/cart/remove/${id}/`;
+
+    fetch(url)
+    .then(res => res.json())
+    .then(data => {
+        document.getElementById("mini-cart-content").innerHTML = data.html;
+        document.getElementById("mini-subtotal").innerText = data.subtotal;
+        attachCartEvents();
+    });
+}
+
+// right cart
+
+document.querySelectorAll(".add-to-cart-btn").forEach(btn => {
+
+    btn.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        fetch(btn.href)
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    loadMiniCart();   // right-side cart load
+                }
+            });
+    });
+
+});
+
+
+function openUserAuth(){
+    document.getElementById("userAuthOverlay").style.display = "flex";
+    showAuthLogin();
+}
+
+function closeUserAuth(){
+    document.getElementById("userAuthOverlay").style.display = "none";
+}
+
+function showAuthSignup(){
+    document.querySelector(".auth-login-form").style.display = "none";
+    document.querySelector(".auth-signup-form").style.display = "block";
+}
+
+function showAuthLogin(){
+    document.querySelector(".auth-signup-form").style.display = "none";
+    document.querySelector(".auth-login-form").style.display = "block";
+}
+
+function toggleAuthPassword(id){
+    let pass = document.getElementById(id);
+    pass.type = pass.type === "password" ? "text" : "password";
+}
+
+function toggleUserDropdown(){
+    const dropdown = document.getElementById("userDropdown");
+    dropdown.style.display =
+        dropdown.style.display === "block" ? "none" : "block";
+}
+
+/* Close dropdown when clicking outside */
+document.addEventListener("click", function(e){
+    const userArea = document.querySelector(".nav-user-area");
+    const dropdown = document.getElementById("userDropdown");
+
+    if(userArea && dropdown && !userArea.contains(e.target)){
+        dropdown.style.display = "none";
+    }
+});
+
+
+function openWishlist(){
+    document.getElementById("wishlistOverlay").style.display = "flex";
+}
+
+function closeWishlist(){
+    document.getElementById("wishlistOverlay").style.display = "none";
+}
+
+</script>
+
+{% block extra_js %}{% endblock %}
+
+
+
+</body>
+
+</html>

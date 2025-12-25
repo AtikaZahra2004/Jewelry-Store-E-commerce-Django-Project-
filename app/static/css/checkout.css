@@ -1,0 +1,89 @@
+/* --- top nav --- */
+.cart-nav { text-align:center; margin:22px 0; }
+.cart-nav a { margin:0 20px; font-size:18px; color:#777; text-decoration:none; padding-bottom:3px; }
+.cart-nav a.active { color:#000; border-bottom:2px solid #000; }
+
+/* coupon small */
+.coupon-box { width:90%; margin:8px auto 18px; background:#f6f6f6; padding:10px 14px; border-radius:4px; border:1px solid #eee; text-align:center; color:#444; }
+
+/* main layout */
+.checkout-container { width:92%; margin:8px auto 60px; }
+.checkout-content { display:flex; gap:34px; align-items:flex-start; }
+
+/* left form */
+.billing-details { width:64%; background:transparent; }
+.billing-details h3 { margin-bottom:14px; font-size:22px; }
+.billing-details label{ display:block; margin-top:12px; font-size:13px; color:#333; }
+.billing-details input, .billing-details select, .billing-details textarea {
+    width:100%; padding:10px; margin-top:6px; border:1px solid #ddd; border-radius:3px; font-size:14px;
+}
+.billing-details textarea { min-height:80px; }
+
+/* right summary */
+.order-summary { width:34%; border:1px solid #ddd; background:#fafafa; padding:0; border-radius:4px; overflow:hidden; }
+.order-summary h3 { background:#efefef; margin:0; padding:14px 16px; font-size:18px; font-weight:600; border-bottom:1px solid #e6e6e6; }
+.summary-items { padding:14px 16px; max-height:380px; overflow:auto; }
+.summary-row { display:flex; align-items:center; gap:12px; margin-bottom:12px; }
+.summary-row img { width:48px; height:48px; object-fit:cover; border-radius:4px; border:1px solid #eee; }
+.summary-info { flex:1; }
+.product-name { margin:0; font-size:14px; }
+.summary-info span { font-size:13px; color:#666; }
+
+/* totals area */
+.summary-total { padding: 10px 16px; border-top:1px solid #eee; }
+.summary-total p { margin:8px 0; font-size:14px; color:#333; }
+.summary-total span { float:right; font-weight:600; }
+.final-total { font-size:18px; font-weight:700; margin-top:8px; }
+
+/* payment list */
+.payment-methods { padding:12px 16px; border-top:1px solid #eee; }
+.pay-row { display:block; margin-bottom:8px; font-size:14px; color:#333; }
+
+/* place order button */
+.place-area { padding:12px 16px 20px 16px; border-top:1px solid #eee; }
+.place-order-btn {
+    display:block; width:100%; background:#000; color:#fff; padding:12px; border-radius:3px; border:none; cursor:pointer; font-weight:700;
+}
+.place-order-btn:hover { opacity:0.95; }
+
+/* responsive */
+@media (max-width: 900px) {
+    .checkout-content { flex-direction:column; }
+    .billing-details, .order-summary { width:100%; }
+    .order-summary { margin-top:18px; }
+}
+
+
+.shop-full-banner {
+    width: 100%;
+    height: 400px; /* You can increase to 400/500 based on your design */
+    background-image: url("../images/bg4.webp");;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+
+
+
+.breadcrumb {
+    font-size: 24px;
+    color: #666;
+}
+
+.breadcrumb a {
+    color: #000;
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb span {
+    margin: 0 6px;
+}

@@ -1,0 +1,416 @@
+.shop-full-banner {
+    width: 100%;
+    height: 400px; /* You can increase to 400/500 based on your design */
+    background-image: url("../images/bg4.webp");;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.breadcrumb {
+    font-size: 24px;
+    color: #666;
+}
+
+.breadcrumb a {
+    color: #000;
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb span {
+    margin: 0 6px;
+}
+
+
+/* Text styling */
+.banner-text {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.6); /* light white transparent background */
+    padding: 20px 40px;
+    border-radius: 6px;
+}
+
+.banner-text h1 {
+    font-size: 40px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.banner-text p {
+    margin-top: 8px;
+    font-size: 16px;
+    color: #444;
+}
+
+
+
+
+
+
+
+
+.blog-container {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 20px;
+    padding: 30px;
+}
+
+/* SIDEBAR */
+.blog-sidebar {
+    border-right: 1px solid #eee;
+    padding-right: 20px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.sidebar-section {
+    margin: 25px 0;
+}
+
+.sidebar-section h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.sidebar-section ul li {
+    list-style: none;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+.latest-post {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.latest-post img {
+    width: 60px;
+    height: 60px;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+.latest-post .date {
+    font-size: 12px;
+    color: gray;
+}
+
+.social-icons i {
+    display: inline-flex;
+    width: 28px;
+    height: 28px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+}
+
+/* BLOG POSTS */
+.blog-content .blog-card {
+    margin-bottom: 40px;
+}
+
+.blog-img {
+    width: 100%;
+    border-radius: 6px;
+}
+
+.blog-tags span {
+    background: #eee;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    margin-right: 5px;
+}
+
+.blog-title {
+    margin: 12px 0 4px;
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.blog-date {
+    font-size: 14px;
+    color: gray;
+}
+
+.blog-text {
+    margin: 10px 0 20px;
+}
+
+.read-btn {
+    padding: 10px 20px;
+    background: black;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    border-radius: 30px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+    .blog-container {
+        grid-template-columns: 1fr;
+    }
+
+    .blog-sidebar {
+        border-right: none;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .blog-title {
+        font-size: 20px;
+    }
+}
+
+/* blog-2 */
+/* MAIN WRAPPER */
+.gag-container {
+    width: 90%;
+    max-width: 900px;
+    margin: 40px auto;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+/* Categories */
+.gag-categories span {
+    display: inline-block;
+    border: 1px solid #ccc;
+    padding: 6px 14px;
+    margin: 0 5px;
+    font-size: 12px;
+}
+
+/* Title */
+.gag-title {
+    font-size: 32px;
+    margin: 15px 0;
+}
+
+/* Author */
+.gag-author {
+    color: #777;
+    margin-bottom: 25px;
+}
+
+/* Paragraph Text */
+.gag-text p {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+/* ---- IMAGE GALLERY ---- */
+.gag-gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 30px 0;
+    flex-wrap: wrap; /* important for responsive */
+}
+
+.gag-gallery img {
+    width: 100%;
+    max-width: 280px;  /* Each image equal width */
+    height: 220px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* ---- TAGS ---- */
+.gag-tags {
+    text-align: left;
+    margin-top: 20px;
+}
+
+.gag-tags span:first-child {
+    font-weight: bold;
+}
+
+.gag-tag-items span {
+    border: 1px solid #ccc;
+    padding: 5px 15px;
+    margin-right: 10px;
+    font-size: 12px;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+/* ---- SHARE ---- */
+.gag-share {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.gag-icons {
+    display: inline-flex;
+    gap: 12px;
+    margin-left: 5px;
+}
+
+.gag-icons i {
+    border: 1px solid #ccc;
+    padding: 6px 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* ---------------------
+   RESPONSIVE 
+----------------------- */
+@media (max-width: 900px) {
+    .gag-gallery img {
+        max-width: 30%;
+    }
+}
+
+@media (max-width: 600px) {
+    .gag-gallery img {
+        max-width: 45%;
+    }
+}
+
+@media (max-width: 420px) {
+    .gag-gallery img {
+        max-width: 100%;
+        height: 200px;
+    }
+}
+
+
+
+/* blog-2 */
+.gag-comment-section {
+    width: 90%;
+    max-width: 900px;
+    margin: 50px auto;
+    font-family: 'Arial', sans-serif;
+}
+
+/* ------- Post Navigation ------- */
+.gag-post-nav {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding: 25px 0;
+    margin-bottom: 40px;
+}
+
+.gag-post-nav a {
+    color: #222;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.gag-post-nav a:hover {
+    color: #000;
+}
+
+/* ------- Leave a Reply ------- */
+.gag-reply-title {
+    text-align: center;
+    font-size: 26px;
+    margin-bottom: 5px;
+}
+
+.gag-note {
+    text-align: center;
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+/* ------- Comment Form ------- */
+.gag-comment-form {
+    width: 100%;
+}
+
+.gag-textarea {
+    width: 100%;
+    height: 220px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    resize: vertical;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+/* Name + Email Row */
+.gag-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.gag-input {
+    width: 50%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    font-size: 15px;
+}
+
+.gag-input-full {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    font-size: 15px;
+}
+
+/* Submit Button */
+.gag-submit {
+    display: block;
+    margin: 0 auto;
+    padding: 12px 30px;
+    background: #000;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.gag-submit:hover {
+    opacity: 0.8;
+}
+
+/* ------- Responsive ------- */
+@media (max-width: 600px) {
+    .gag-row {
+        flex-direction: column;
+    }
+
+    .gag-input {
+        width: 100%;
+    }
+
+    .gag-post-nav {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+}

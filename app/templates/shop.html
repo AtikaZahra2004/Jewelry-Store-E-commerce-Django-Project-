@@ -1,0 +1,227 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}shop - My Site{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/shop.css' %}">
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="shop-full-banner">
+    <p class="breadcrumb">
+    <a href="{% url 'home' %}">Home</a> &gt;
+    <a href="{% url 'shop' %}">Shop</a>
+</p>
+
+</div>
+
+
+<div class="page-layout">
+
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar">
+
+    <!-- CATEGORIES -->
+    <h3 class="side-title">CATEGORIES</h3>
+    <ul class="side-list">
+        <li><input type="checkbox"> Bracelet (6)</li>
+        <li><input type="checkbox"> Charms (3)</li>
+        <li><input type="checkbox"> Earrings (8)</li>
+        <li><input type="checkbox"> Necklace (6)</li>
+        <li><input type="checkbox"> Rings (8)</li>
+        <li><input type="checkbox"> Wedding & Bridal (2)</li>
+    </ul>
+    <hr>
+
+    <!-- PRICE -->
+    <h3 class="side-title">PRICE</h3>
+    <input type="range" min="300.00" max="3000.00" class="price-range">
+    <p class="range-text">Range: 300.00$ - 300.00$</p>
+    <hr>
+
+    <!-- COLOR -->
+    <h3 class="side-title">COLOR</h3>
+    <ul class="color-list">
+        <li><span class="box black"></span> Black (2)</li>
+        <li><span class="box blue"></span> Blue (2)</li>
+        <li><span class="box green"></span> Green (3)</li>
+        <li><span class="box pink"></span> Pink (2)</li>
+        <li><span class="box red"></span> Red (1)</li>
+        <li><span class="box white"></span> White (3)</li>
+        <li><span class="box yellow"></span> Yellow (4)</li>
+    </ul>
+    <hr>
+
+    <!-- SIZE -->
+    <h3 class="side-title">SIZE</h3>
+    <ul class="side-list">
+        <li><input type="checkbox"> L (2)</li>
+        <li><input type="checkbox"> M (3)</li>
+        <li><input type="checkbox"> S (2)</li>
+        <li><input type="checkbox"> XL (1)</li>
+    </ul>
+    <hr>
+
+    <!-- BRANDS -->
+    <h3 class="side-title">BRANDS</h3>
+    <ul class="side-list">
+        <li><input type="checkbox"> Adamai (4)</li>
+        <li><input type="checkbox"> Aquatic (6)</li>
+        <li><input type="checkbox"> Hewery (12)</li>
+        <li><input type="checkbox"> Paketl (7)</li>
+        <li><input type="checkbox"> Rosado (10)</li>
+        <li><input type="checkbox"> Vanop (6)</li>
+    </ul>
+    <hr>
+
+    <!-- FEATURE PRODUCT -->
+    <h3 class="side-title">FEATURE PRODUCT</h3>
+
+    <div class="feature-item">
+        <img src="{% static 'images/e1.webp' %}" alt="">
+        <div>
+            <p class="fname">Gold Vermeil Sunkissed Large Hoops</p>
+            <p class="old-price">₹1500.00</p>
+            <p class="new-price">₹1160.00</p>
+        </div>
+    </div>
+
+    <div class="feature-item">
+        <img src="{% static 'images/e1.webp' %}" alt="">
+        <div>
+            <p class="fname">Gold Silhoan Pearl Hoops</p>
+            <p class="old-price">₹1500.00</p>
+            <p class="new-price">₹950.00</p>
+        </div>
+    </div>
+
+    <div class="feature-item">
+        <img src="{% static 'images/e1.webp' %}" alt="">
+        <div>
+            <p class="fname">Light Coin Bracelet</p>
+            <p class="old-price">₹1500.00</p>
+            <p class="new-price">₹1200.00</p>
+        </div>
+    </div>
+
+</aside>
+
+    <!-- RIGHT SIDE PRODUCTS -->
+    <div class="right-content">
+
+        <div class="top-bar">
+            <p>Showing 1–12 of 25 results</p>
+
+
+            <select class="sort-select">
+                <option>Default Sorting</option>
+                <option>Price: Low to High</option>
+                <option>Price: High to Low</option>
+            </select>
+        </div>
+
+        <!-- PRODUCTS GRID -->
+    <div class="products-container">
+{% for product in products %}
+<div class="product-card">
+
+    <div class="image-box">
+
+        {% if product.front_image %}
+            <img src="{{ product.front_image.url }}" class="img-front" alt="">
+        {% endif %}
+
+        {% if product.back_image %}
+            <img src="{{ product.back_image.url }}" class="img-back" alt="">
+        {% endif %}
+
+        {% if product.is_sold_out %}
+            <span class="badge hot">Sold Out</span>
+        {% elif product.discount %}
+            <span class="badge hot">-{{ product.discount }}%</span>
+        {% endif %}
+    </div>
+
+    <div class="product-icons">
+        <!-- <span class="add-cart">
+            <a href="{% url 'add_to_cart' product.id %}">
+                <img src="{% static 'icons/bagg.svg' %}" alt="Add to Cart">
+            </a>
+        </span> -->
+
+        <span class="add-cart">
+    <a href="{% url 'add_to_cart_ajax' product.id %}" class="add-to-cart-btn">
+        <img src="{% static 'icons/bagg.svg' %}" alt="Add to Cart">
+    </a>
+</span>
+
+
+        <span class="icon"><img src="{% static 'icons/search.svg' %}" alt=""></span>
+
+
+<span class="icon">
+    <a href="{% url 'add_to_wishlist' product.id %}">
+    <img src="{% static 'icons/heart.svg' %}" alt="wishlist">
+    </a>
+</span>
+
+
+        <span class="icon"><a href="{% url 'add_to_compare' product.id %}" class="icon">
+    <!-- <img src="{% static 'icons/compare.svg' %}" alt="Compare"> -->
+     <i class="fa-solid fa-repeat"></i>
+</a>
+</span>
+    </div>
+
+    <h3>{{ product.name }}</h3>
+    <p class="price">₹{{ product.price }}</p>
+</div>
+{% endfor %}
+</div>
+
+          
+
+
+
+
+
+
+
+
+    
+<!-- 
+         PAGINATION  -->
+        <div class="pagination">
+            <span class="active">1</span>
+            <span>2</span>
+            <span>3</span>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}
+
+
+
+<script>
+document.querySelector(".add-cart").addEventListener("click", function () {
+    document.getElementById("cartSidebar").classList.add("active");
+    document.getElementById("cartOverlay").classList.add("active");
+});
+
+document.getElementById("closeCart").addEventListener("click", function () {
+    document.getElementById("cartSidebar").classList.remove("active");
+    document.getElementById("cartOverlay").classList.remove("active");
+});
+
+// Close cart when clicked outside
+document.getElementById("cartOverlay").addEventListener("click", function () {
+    document.getElementById("cartSidebar").classList.remove("active");
+    document.getElementById("cartOverlay").classList.remove("active");
+});
+</script>
