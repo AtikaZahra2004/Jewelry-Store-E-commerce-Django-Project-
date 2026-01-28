@@ -52,9 +52,66 @@
     border-radius: 2px;
     font-size: 14px;
 }
+/* ===============================
+   MY ORDERS – 320px MOBILE
+================================ */
+@media (max-width: 320px) {
+
+  /* PAGE TITLE */
+  h1 {
+    font-size: 22px;
+    margin-top: 25px;
+  }
+
+  /* DASHBOARD LAYOUT */
+  .dashboard-container {
+    flex-direction: column;
+    width: 100%;
+    margin: 20px auto;
+    gap: 20px;
+    padding: 0 12px;
+  }
+
+  /* LEFT MENU */
+  .dashboard-menu {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .dashboard-menu a {
+    font-size: 14px;
+    padding: 10px 0;
+  }
+
+  /* RIGHT CONTENT */
+  .dashboard-content {
+    width: 100%;
+  }
+
+  /* NO ORDER BOX */
+  .no-order-box {
+    flex-direction: column;     /* 🔥 stack text & button */
+    align-items: flex-start;
+    gap: 12px;
+    padding: 15px;
+  }
+
+  .no-order-box p {
+    font-size: 14px;
+  }
+
+  .browse-btn {
+    font-size: 13px;
+    padding: 9px 14px;
+    width: 100%;
+    text-align: center;
+  }
+
+}
+
 </style>
 
-<h1 style="text-align:center; margin-top:40px;">My Account</h1>
+<h1 style="text-align:center; margin-top:90px;">My Orders</h1>
 
 <div class="dashboard-container">
 

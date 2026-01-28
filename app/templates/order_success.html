@@ -54,6 +54,63 @@
     justify-content: space-between;
     margin-top: 35px;
 }
+/* ===============================
+   ORDER SUCCESS – 320px MOBILE
+================================ */
+@media (max-width: 320px) {
+
+  /* TOP MESSAGE */
+  .order-top-box {
+    font-size: 13px;
+    padding: 12px;
+  }
+
+  /* ORDER INFO BAR → STACK */
+  .order-info-bar {
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+  }
+
+  .order-info-bar div {
+    font-size: 12px;
+    text-align: center;
+  }
+
+  /* TABLE RESPONSIVE */
+  .order-details-table {
+    font-size: 12px;
+  }
+
+  .order-details-table th,
+  .order-details-table td {
+    padding: 8px;
+  }
+
+  .order-details-table th {
+    font-size: 12px;
+  }
+
+  /* ADDRESS SECTION → COLUMN */
+  .address-row {
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 25px;
+  }
+
+  .address-box {
+    width: 100%;
+    padding: 15px;
+    font-size: 12px;
+  }
+
+  .address-box h4 {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+
+}
+
 </style>
 {% endblock %}
 

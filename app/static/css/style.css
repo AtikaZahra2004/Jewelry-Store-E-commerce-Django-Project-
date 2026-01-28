@@ -100,54 +100,6 @@ body {
     display: none;   /* Desktop: hide */
 }
 
-/* ---------------------- */
-/*      MOBILE 320px      */
-/* ---------------------- */
-@media (max-width: 320px) {
-
-    .navbar {
-        padding: 15px 20px;
-    }
-
-    /* Show hamburger */
-    .hamburger {
-        display: block;
-    }
-
-    /* Hide icons on mobile */
-    .icons {
-        display: none;
-    }
-
-    /* Mobile menu hidden by default */
-    .navbar ul {
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 30%;
-        background: rgba(87, 84, 84, 0.19);
-        backdrop-filter: blur(20px);
-        flex-direction: column;
-        text-align: center;
-        gap: 15px;
-        padding: 0;
-        border-top: 2px solid #ddd;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.4s ease;
-    }
-
-    /* Menu opens on toggle */
-    #menu-toggle:checked + label + nav ul {
-        max-height: 200px;
-        padding: 15px 0;
-    }
-}
-
-
-
-
-
 /* home---6 */
 .footer {
     padding: 60px 40px 20px;
@@ -245,143 +197,6 @@ body {
     font-size: 15px;
     color: #444;
 }
-@media (max-width: 320px) {
-
-    .footer-container {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr); /* 3 columns in first row */
-        gap: 20px;
-    }
-
-    /* Pehle 3 columns ek row me */
-    .footer-col:nth-child(-n+3) {
-        grid-column: span 1;
-    }
-
-    /* Last (newsletter) neeche full width me */
-    .footer-col.newsletter {
-        grid-column: 1 / -1;  /* full row */
-    }
-
-    /* Text sizes for 320px */
-    .footer-col h3 {
-        font-size: 14px;
-    }
-
-    .footer-col ul li {
-        font-size: 13px;
-    }
-
-    .newsletter p {
-        font-size: 12px;
-    }
-
-    .footer-bottom {
-        font-size: 12px;
-    }
-
-    
-.subscribe-box input {
-    flex: 1;
-    padding: 1px;
-    font-size: 1px;
-    border: 1px solid #ccc;
-}
-
-
-.subscribe-box button {
-    background: #000;
-    color: #fff;
-    padding: 8px 25px;
-    border: none;
-    cursor: pointer;
-    font-size: 9px;
-    letter-spacing: 1px;}
-        .footer-col ul li {
-        font-size: 11px;
-    }
-
-        .footer-col h3 {
-        font-size: 11px;
-    }
-
-}
-
-@media (max-width: 768px) {
-
-.footer {
-    padding: 13px 9px 1px;
-    border-top: 2px solid #eee;
-    font-family: sans-serif;
-}
-
-
-.footer-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 28px;
-}
-
-
-.subscribe-box input {
-    flex: 1;
-    padding: 1px;
-    font-size: 10px;
-    border: 1px solid #ccc;
-}
-
-.subscribe-box button {
-    background: #000;
-    color: #fff;
-    padding: 10px 0px;
-    border: none;
-    cursor: pointer;
-    font-size: 10px;
-    letter-spacing: 5px;
-}
-.features {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 24px 23px;
-    text-align: center;
-    gap: 11px;
-    flex-wrap: wrap;
-}
-
-.feature-box {
-    flex: 1;
-    min-width: 172px;
-    max-width: 282px;
-}
-
-
-.feature-box h3 {
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 8px;
-}
-
-.feature-box p {
-    font-size: 15px;
-    color: #555;
-}
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 17px 14px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 999;
-    background: rgba(255, 255, 255, 0.062);
-    backdrop-filter: blur(20px);
-}
-}
-
 .login-modal {
     display: none;
     position: fixed;
@@ -461,32 +276,6 @@ body {
     margin-right: 8px;
 }
 
-/* .dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 25px;
-    right: 0;
-    background: white;
-    border-radius: 6px;
-    padding: 10px 0;
-    width: 180px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    z-index: 999;
-} */
-
-/* .dropdown-menu a {
-    display: block;
-    padding: 8px 15px;
-    text-decoration: none;
-    color: black;
-    font-size: 14px;
-}
-
-.dropdown-menu a:hover {
-    background: #f2f2f2;
-} */
-
-/* Show dropdown on hover */
 .user-dropdown:hover .dropdown-menu {
     display: block;
 }
@@ -509,33 +298,6 @@ body {
     cursor: pointer;
 }
 
-
-/* .dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 25px;
-    right: 0;
-    background: white;
-    border-radius: 6px;
-    padding: 10px 0;
-    width: 180px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    z-index: 999;
-} */
-
-/* .dropdown-menu a {
-    display: block;
-    padding: 8px 15px;
-    text-decoration: none;
-    color: black;
-    font-size: 14px;
-} */
-/* 
-.dropdown-menu a:hover {
-    background: #f2f2f2;
-} */
-
-/* Hover karne par dropdown khulta hai */
 .user-dropdown:hover .dropdown-menu {
     display: block;
 }
@@ -806,17 +568,7 @@ body {
     color: black;
 }
 
-/* RESPONSIVE */
-@media(max-width: 768px){
-    .hero-text h1 {
-        font-size: 45px;
-    }
-}
-@media(max-width: 480px){
-    .hero-text h1 {
-        font-size: 30px;
-    }
-}
+
 
 /* sighup */
 .auth-modal {
@@ -867,88 +619,6 @@ body {
     border: none;
     cursor: pointer;
 }
-/* 
-.banner-section {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-       background: url("../images/bg.webp") no-repeat center center / cover;
-
-        
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.banner-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.25);
-}
-
-.banner-content {
-    position: relative;
-    text-align: center;
-    color: #ffffff;
-    max-width: 700px;
-    padding: 20px;
-}
-
-.banner-tagline {
-    font-size: 14px;
-    letter-spacing: 2px;
-    margin-bottom: 12px;
-    opacity: 0.9;
-}
-
-.banner-title {
-    font-size: 56px;
-    line-height: 1.2;
-    margin-bottom: 25px;
-    font-weight: 600;
-}
-
-.banner-btn {
-    display: inline-block;
-    padding: 14px 34px;
-    border: 1px solid #ffffff;
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 14px;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-}
-
-.banner-btn:hover {
-    background: #ffffff;
-    color: #000000;
-}
-
-/* ============ RESPONSIVE ============ */
-
-@media (max-width: 768px) {
-    .banner-title {
-        font-size: 38px;
-    }
-
-    .banner-btn {
-        padding: 12px 28px;
-    }
-}
-
-@media (max-width: 480px) {
-    .banner-section {
-        height: 90vh;
-    }
-
-    .banner-title {
-        font-size: 28px;
-    }
-
-    .banner-tagline {
-        font-size: 12px;
-    }
-} 
 
 .auth-modal {
     display: none;
@@ -1294,4 +964,224 @@ body {
     border-radius: 50%;
     object-fit: cover;
     cursor: pointer;
+}
+/* ===============================
+   MEDIA QUERY : 320px MOBILE
+   =============================== */
+@media (max-width: 320px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
+    /* ---------- NAVBAR ---------- */
+    .navbar {
+        padding: 12px 15px;
+    }
+
+    .logo svg {
+        width: 55px;
+        height: auto;
+    }
+
+    nav {
+        position: fixed;
+        top: 60px;
+        left: -100%;
+        width: 50%;
+        background: #a18458;
+        transition: 0.3s ease;
+        z-index: 999;
+    }
+
+    #menu-toggle:checked ~ nav {
+        left: 0;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    nav ul li {
+        border-bottom: 1px solid #eee;
+    }
+
+    nav ul li a {
+        padding: 5px;
+        font-size: 10px;
+        display: block;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .hamburger {
+        display: block;
+        font-size: 24px;
+    }
+    
+.navbar ul {
+    display: flex;
+    list-style: none;
+    gap: 10px;
+}
+
+    /* ---------- DROPDOWN (PAGE) ---------- */
+    .menu-dropdown {
+        width: 100%;
+    }
+
+    .menu-list {
+        position: static;
+        box-shadow: none;
+        width: 100%;
+    }
+
+    /* ---------- ICONS ---------- */
+    .icons {
+        gap: 12px;
+    }
+
+    .icons i {
+        font-size: 16px;
+    }
+
+    .user-avatar {
+        width: 22px;
+        height: 22px;
+        font-size: 12px;
+    }
+
+    /* ---------- USER DROPDOWN ---------- */
+    /* .user-dropdown {
+        width: 100%;
+        right: 0;
+        left: 0;
+        top: 50px;
+    } */
+    /* ===============================
+   USER DROPDOWN – 320px MOBILE
+================================ */
+
+
+      .user-dropdown {
+        position: fixed;
+        top: 60px;
+        right: 20px;
+        width: 50%;
+        max-width: 280px;
+        background: #fff;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        padding: 10px 0;
+        z-index: 10000;
+    }
+
+  .user-dropdown a {
+    display: block;
+    padding: 12px 16px;
+    font-size: 14px;
+    color: #222;
+    text-decoration: none;
+  }
+
+  .user-dropdown a:hover {
+    background: #f5f5f5;
+  }
+
+  .user-dropdown hr {
+    margin: 8px 0;
+  }
+
+  /* Mobile pe hover kaam nahi karta */
+  .user-dropdown:hover .dropdown-menu {
+    display: none;
+  }
+
+
+
+
+    /* ---------- HERO SECTION ---------- */
+    .hero-section {
+        height: 65vh;
+    }
+
+    .hero-text {
+        left: 6%;
+        right: 6%;
+    }
+
+    .hero-text h1 {
+        font-size: 32px;
+        line-height: 1.2;
+    }
+
+    .hero-text p {
+        font-size: 14px;
+    }
+
+    .hero-btn {
+        padding: 10px 22px;
+        font-size: 14px;
+    }
+
+    /* ---------- AUTH MODAL ---------- */
+    .user-auth-container {
+        width: 95%;
+    }
+
+    .auth-banner img {
+        height: 140px;
+    }
+
+    .auth-form {
+        padding: 18px;
+    }
+
+    /* ---------- MINI CART ---------- */
+    .mini-cart {
+        width: 100%;
+        right: -100%;
+    }
+
+    .mini-cart.open {
+        right: 0;
+    }
+
+    /* ---------- FOOTER ---------- */
+    .footer {
+        padding: 40px 20px 20px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .footer-col h3 {
+        font-size: 14px;
+    }
+
+    .footer-col ul li {
+        font-size: 14px;
+    }
+
+    .subscribe-box {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .subscribe-box input,
+    .subscribe-box button {
+        width: 100%;
+    }
+
+    .social-icons {
+        justify-content: flex-start;
+    }
+
+    .footer-bottom {
+        font-size: 13px;
+    }
 }

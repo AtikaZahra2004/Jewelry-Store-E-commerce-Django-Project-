@@ -10,7 +10,6 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from .forms import AccountDetailsForm
 
-import razorpay
 from django.conf import settings
 from django.shortcuts import render, redirect
 from .models import Order, OrderItem
@@ -19,8 +18,9 @@ import hmac
 import hashlib
 
 
-from django.conf import settings
 import razorpay
+from django.conf import settings
+
 
 
 
@@ -30,8 +30,10 @@ import json
 
 
 
+client = razorpay.Client(
+    auth=(settings.RAZORPAY_KEY_ID, settings.RAZORPAY_KEY_SECRET)
+)
 
-client = razorpay.Client(auth=(settings.RAZORPAY_KEY_ID, settings.RAZORPAY_KEY_SECRET))
 
 
 def signup_view(request):

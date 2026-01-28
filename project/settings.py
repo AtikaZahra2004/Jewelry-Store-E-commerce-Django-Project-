@@ -26,8 +26,7 @@ SECRET_KEY = 'django-insecure-*@mf+4+x)n%s7@=syv!4&==(*7pn+cd4m88a9=-omxa4qe!**1
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
-
+                 
 # Application definition
 
 INSTALLED_APPS = [
@@ -121,6 +120,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = '/home/Atikazahra/jwerly/project/static'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

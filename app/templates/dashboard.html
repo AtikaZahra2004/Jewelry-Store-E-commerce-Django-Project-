@@ -39,9 +39,58 @@
     font-size: 28px;
     margin-bottom: 10px;
 }
+/* ===============================
+   DASHBOARD – 320px MOBILE
+================================ */
+@media (max-width: 320px) {
+
+  /* PAGE TITLE */
+  h1 {
+    font-size: 22px;
+    margin-top: 25px;
+  }
+
+  /* MAIN CONTAINER */
+  .dashboard-container {
+    flex-direction: column;     /* column layout */
+    width: 100%;
+    margin: 20px auto;
+    gap: 20px;
+    padding: 0 12px;
+  }
+
+  /* LEFT MENU */
+  .dashboard-menu {
+    width: 100%;
+    padding: 15px;
+    border-radius: 6px;
+  }
+
+  .dashboard-menu a {
+    padding: 10px 0;
+    font-size: 14px;
+  }
+
+  /* RIGHT CONTENT */
+  .dashboard-content {
+    width: 100%;
+  }
+
+  .dashboard-content h2 {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+
+  .dashboard-content p {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+}
+
 </style>
 
-<h1 style="text-align:center; margin-top:40px;">My Account</h1>
+<h1 style="text-align:center; margin-top:90px; ">My Dashboard</h1>
 
 <div class="dashboard-container">
 

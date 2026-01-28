@@ -67,9 +67,6 @@
     position: relative;
 }
 
-
-
-
 .breadcrumb {
     font-size: 24px;
     color: #666;
@@ -86,4 +83,62 @@
 
 .breadcrumb span {
     margin: 0 6px;
+}
+@media (max-width: 320px) {
+
+  .shop-full-banner {
+    height: 180px;
+  }
+
+  .breadcrumb {
+    font-size: 15px;
+    text-align: center;
+  }
+
+  .cart-nav a {
+    font-size: 14px;
+    margin: 0 6px;
+  }
+
+  .coupon-box {
+    width: 95%;
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .checkout-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .billing-details,
+  .order-summary {
+    width: 100%;
+  }
+
+  .billing-details h3 {
+    font-size: 18px;
+  }
+
+  .billing-details label {
+    font-size: 12px;
+  }
+
+  .billing-details input,
+  .billing-details textarea,
+  .billing-details select {
+    font-size: 13px;
+    padding: 9px;
+  }
+
+  .summary-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .summary-row img {
+    width: 48px;
+    height: 48px;
+  }
 }

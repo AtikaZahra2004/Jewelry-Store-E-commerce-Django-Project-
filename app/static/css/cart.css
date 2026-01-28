@@ -318,8 +318,12 @@
     text-decoration: none;
 }
 
-@media (max-width: 320px){
 
+
+@media (max-width: 320px){
+ .shop-full-banner {
+    height: 220px;
+  }
     
 .cart-nav a {
     display: inline-block;
@@ -461,4 +465,40 @@
     font-size: 14px;
 }
 
+}
+@media (max-width: 425px) {
+
+  .shop-full-banner {
+    height: 220px;
+  }
+
+  .breadcrumb {
+    font-size: 18px;
+  }
+
+  .cart-container {
+    flex-direction: column;
+  }
+
+  .cart-main,
+  .cart-sidebar {
+    width: 100%;
+  }
+
+  .cart-table {
+    min-width: 600px;
+  }
+
+  .cart-actions {
+    flex-wrap: wrap;
+  }
+
+  .coupon-input {
+    width: 100%;
+  }
+
+  .apply-btn,
+  .continue-btn {
+    width: 100%;
+  }
 }
